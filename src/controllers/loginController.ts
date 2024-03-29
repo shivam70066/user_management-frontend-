@@ -1,7 +1,6 @@
 import { isEmailRegistered, isCredentialsTrue , isValidEmail} from './../services/login.service';
 import { Request, Response } from 'express';
 import {generateToken} from '../services/jwt.service'
-import jwt from 'jsonwebtoken';
 
 
 export const login = async (req: Request, res: Response) => {

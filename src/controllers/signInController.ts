@@ -1,5 +1,4 @@
-import { isEmailRegistered, isValidData, createNewUser } from './../services/users.service';
-import prisma from "../../DB/db.config";
+import { isEmailRegistered, isValidData, createNewUser } from '../services/signIn.service';
 import { Request, Response } from 'express';
 
 export const createUser = async (req: Request, res: Response) => {

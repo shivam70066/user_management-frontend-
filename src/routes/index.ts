@@ -1,12 +1,17 @@
-import { Router,Response,Request } from "express";
+import { Router} from "express";
+import authRouter from "./auth";
 import userRouter from "./userRoutes";
+import authenticateToken from "../middlewares/authenticateJWT";
+import usersRouter from "./user";
+import templatesRouter from "./emailTemplates";
 
 const router = Router();
 
-// router.use('/signup',userRouter)
-// router.use('/login',userRouter)
 
-router.use('/',userRouter )
+router.use('/auth',authRouter)
+router.use('/users',authenticateToken,userRouter)
+router.use('/user',authenticateToken,usersRouter);
+router.use('/emailTemplates',authenticateToken,templatesRouter)
 
 
 

@@ -1,4 +1,4 @@
-import express, {Response,Request} from 'express'
+import express, {Response,Request,NextFunction} from 'express'
 import router from './routes';
 import cors from 'cors'
 const app = express()
@@ -6,7 +6,11 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+
+app.use((req:Request,res:Response, next: NextFunction)=>{
+    next();
+})
 
 
 app.use('/',router);
